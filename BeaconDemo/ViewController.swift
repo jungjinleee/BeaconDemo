@@ -1,7 +1,7 @@
 //
 //  ViewController.swift
 //  BeaconDemo
-//  간호학과 폴더임
+//  
 //  Created by 이정진 on 2021/04/13.
 //
 
@@ -31,6 +31,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
     var Beaconrssi: NSMutableArray!
     var Beaconacc: NSMutableArray!
     var BeaconCount: Int = 0
+    var BeaconNum: Int = 5
     
     let uuid = "E2C56DB5-DFFB-48D2-B060-D0F5A71096E0"
     let name = UIDevice.current.name
@@ -64,10 +65,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
 //                    formatter.timeZone = TimeZone(abbreviation: "KST")
                 
         
-        if beacons.count >= 3 {
-            BeaconCount = 3
+        if beacons.count >= BeaconNum {
+            BeaconCount = BeaconNum
             
-            for i in 0 ..< 3 {
+            for i in 0 ..< BeaconNum {
                 
                 let beacon = beacons[i]
                 let timestamp = formatter.string(from: beacon.timestamp)
@@ -105,7 +106,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDa
             TableViewMain.reloadData()
         }
         
-        else if beacons.count > 0 && beacons.count < 3 {
+        else if beacons.count > 0 && beacons.count < BeaconNum {
             BeaconCount = beacons.count
             
             for i in 0 ..< beacons.count {

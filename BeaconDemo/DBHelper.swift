@@ -5,13 +5,6 @@
 //  Created by 이정진 on 2021/04/16.
 //
 
-//
-//  DBHelper.swift
-//  DBDemo
-//
-//  Created by 이정진 on 2021/04/16.
-//
-
 import Foundation
 import SQLite3
 
